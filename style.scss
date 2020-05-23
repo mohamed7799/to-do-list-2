@@ -36,16 +36,7 @@ hr {
 #in {
     display: flex;
     margin-bottom: 2rem;
-    align-items: center;
-
-    @include mobile {
-        align-items: end;
-        flex-direction: column;
-
-        &>* {
-            margin-bottom: 1rem;
-        }
-    }
+    flex-direction: column;
 
     & i {
         width: 34px;
@@ -59,6 +50,7 @@ hr {
         align-self: flex-end;
         font-size: 1.3rem;
         padding-bottom: .5rem;
+        margin-right: 1rem;
 
         @include mobile {
             align-self: auto;
@@ -69,11 +61,6 @@ hr {
             outline: none;
             border-bottom: 1px solid $main-color;
         }
-    }
-
-    & input,
-    & p {
-        margin-right: 1rem;
     }
 
     & i,
@@ -90,6 +77,18 @@ hr {
         }
     }
 }
+
+#sub {
+    display: flex;
+    margin-bottom: 1rem;
+    justify-content: space-between;
+}
+
+#search input {
+    width: 100%;
+}
+
+
 
 .list__item {
     display: flex;
