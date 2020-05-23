@@ -1,9 +1,14 @@
 "use strict"
-
+//var
 let toDo = {
     submit: true,
     edit: false,
-    editItem: ""
+    editItem: "",
+    setValues: function (sub, ed, it) {
+        this.submit = sub;
+        this.edit = ed;
+        thiss.editItem = it;
+    }
 }
 
 let input = document.getElementById("in-js");
@@ -13,33 +18,26 @@ let mode = document.getElementById("mode");
 let list = document.getElementById('list');
 
 
+//event listeners
+
 list.addEventListener("click", (e) => {
     let p = e.target.parentElement.parentElement;
     if (e.target.classList.contains("delete")) {
-        console.log(e.parentElement);
-
         list.removeChild(p);
     }
     else if (e.target.classList.contains("edit")) {
         mode.innerText = "Edit";
         input.value = p.firstElementChild.innerText;
-        toDo.editItem = p.firstElementChild;
-        toDo.edit = true;
-        toDo.submit = false;
+        toDo.setValues(false, true, p.firstElementChild);
     }
 })
 
 mode.addEventListener("click", () => {
     if (input.value !== "") {
         if (toDo.edit) {
-            console.log(toDo.editItem);
-            console.log(input.value);
             toDo.editItem.innerText = input.value;
-            toDo.editItem = "";
-            toDo.edit = false;
-            toDo.submit = true;
+            toDo.setValues(true, false, "");
             mode.innerText = "Submite";
-            console.log(toDo)
         }
         else {
             list.innerHTML += `<li class="list__item">
