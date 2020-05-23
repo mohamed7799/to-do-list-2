@@ -1,0 +1,159 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  color: brown;
+  min-height: 100%;
+  font-family: 'Oswald', sans-serif;
+  background-color: antiquewhite;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+li {
+  list-style: none;
+}
+
+#title {
+  width: 50%;
+  margin: 3rem auto;
+  text-align: center;
+}
+
+hr {
+  width: 15%;
+  margin: 1.5rem auto;
+  height: 4px;
+  background-color: brown;
+  border: 1px solid;
+}
+
+@media screen and (max-width: 600px) {
+  hr {
+    width: 30%;
+  }
+}
+
+#todo-cont {
+  background-color: white;
+  padding: 1rem;
+  -webkit-box-shadow: 5px 5px 10px #e4e2e2, -5px -5px 10px #e4e2e2;
+          box-shadow: 5px 5px 10px #e4e2e2, -5px -5px 10px #e4e2e2;
+  margin: 1rem auto;
+}
+
+@media screen and (max-width: 600px) {
+  #todo-cont {
+    width: 100%;
+  }
+}
+
+#in {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 2rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media screen and (max-width: 600px) {
+  #in {
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: end;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  #in > * {
+    margin-bottom: 1rem;
+  }
+}
+
+#in i {
+  width: 34px;
+  height: 34px;
+}
+
+#in input {
+  border: none;
+  border-bottom: 1px solid gray;
+  -webkit-transition: .4s;
+  transition: .4s;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  font-size: 1.3rem;
+  padding-bottom: .5rem;
+}
+
+@media screen and (max-width: 600px) {
+  #in input {
+    -ms-flex-item-align: auto;
+        -ms-grid-row-align: auto;
+        align-self: auto;
+    width: 100%;
+  }
+}
+
+#in input:focus {
+  outline: none;
+  border-bottom: 1px solid brown;
+}
+
+#in input,
+#in p {
+  margin-right: 1rem;
+}
+
+#in i,
+#in p {
+  border-radius: 5px;
+  border: 1px solid brown;
+  -webkit-transition: .3s;
+  transition: .3s;
+  padding: .5rem;
+}
+
+#in i:hover,
+#in p:hover {
+  background-color: brown;
+  color: white;
+  cursor: pointer;
+}
+
+.list__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 2px solid #decdb6;
+}
+
+.icons i {
+  padding: .2rem;
+}
+
+.icons i:hover {
+  cursor: pointer;
+}
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,109 @@
+@import './resst';
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import './mixins';
+
+$main-color:brown;
+
+#title {
+    width: 50%;
+    margin: 3rem auto;
+    text-align: center;
+}
+
+hr {
+    width: 15%;
+    margin: 1.5rem auto;
+    height: 4px;
+    background-color: $main-color;
+    border: 1px solid;
+
+    @include mobile {
+        width: 30%;
+    }
+}
+
+#todo-cont {
+    background-color: white;
+    padding: 1rem;
+    box-shadow: 5px 5px 10px #e4e2e2, -5px -5px 10px #e4e2e2;
+    margin: 1rem auto;
+
+    @include mobile {
+        width: 100%;
+    }
+}
+
+#in {
+    display: flex;
+    margin-bottom: 2rem;
+    align-items: center;
+
+    @include mobile {
+        align-items: end;
+        flex-direction: column;
+
+        &>* {
+            margin-bottom: 1rem;
+        }
+    }
+
+    & i {
+        width: 34px;
+        height: 34px;
+    }
+
+    & input {
+        border: none;
+        border-bottom: 1px solid gray;
+        transition: .4s;
+        align-self: flex-end;
+        font-size: 1.3rem;
+        padding-bottom: .5rem;
+
+        @include mobile {
+            align-self: auto;
+            width: 100%;
+        }
+
+        &:focus {
+            outline: none;
+            border-bottom: 1px solid $main-color;
+        }
+    }
+
+    & input,
+    & p {
+        margin-right: 1rem;
+    }
+
+    & i,
+    & p {
+        border-radius: 5px;
+        border: 1px solid $main-color;
+        transition: .3s;
+        padding: .5rem;
+
+        &:hover {
+            background-color: $main-color;
+            color: white;
+            cursor: pointer;
+        }
+    }
+}
+
+.list__item {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    border-bottom: 2px solid #decdb6;
+}
+
+.icons {
+    i {
+        padding: .2rem;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
