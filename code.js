@@ -11,8 +11,6 @@ let toDo = {
     }
 }
 
-let db = firebase.firestore();
-
 let inputSub = document.getElementById("sub-in");
 
 let inputSearch = document.getElementById("search-in");
@@ -20,8 +18,6 @@ let inputSearch = document.getElementById("search-in");
 let mode = document.getElementById("mode");
 
 let list = document.getElementById('list');
-
-let tasksState = [];
 
 //fun
 
@@ -36,46 +32,6 @@ let renderItems = (data) => {
                     </div>
                 </li>`;
     })
-}
-
-
-let getDB = () => {
-    db.collection("tasks").doc("task").get().then((doc) => {
-        tasksState = doc.data().tasks;
-        renderItems(tasksState);
-    })
-
-}
-
-let removeFromArray = (arr, item) => {
-    let ind = arr.indexOf(item);
-    arr.splice(ind, 1);
-}
-
-let addToDB = (task) => {
-    tasksState.push(task);
-    db.collection("tasks").doc("task").set({
-        tasks: tasksState
-    })
-    renderItems(tasksState);
-}
-
-let deleteFromDB = (task) => {
-    removeFromArray(tasksState, task);
-    db.collection("tasks").doc("task").set({
-        tasks: tasksState
-    })
-    renderItems(tasksState);
-}
-
-let editToDB = (task) => {
-
-    let indOfChange = tasksState.indexOf(task);
-    tasksState[indOfChange] = inputSub.value
-    db.collection("tasks").doc("task").set({
-        tasks: tasksState
-    })
-    renderItems(tasksState);
 }
 
 //event listeners
