@@ -3,3 +3,17 @@
         @content;
     }
 }
+
+@mixin btn {
+    border-radius: 5px;
+    border: 1px solid $main-color;
+    transition: .3s;
+    padding: .5rem 1rem;
+    margin-left: 1rem;
+
+    &:hover {
+        background-color: $main-color;
+        color: white;
+        cursor: pointer;
+    }
+}

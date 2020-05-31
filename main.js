@@ -1,23 +1,4 @@
 "use strict"
-//var
-let toDo = {
-    submit: true,
-    edit: false,
-    editItem: "",
-    setValues: function (sub, ed, it) {
-        this.submit = sub;
-        this.edit = ed;
-        this.editItem = it;
-    }
-}
-
-let inputSub = document.getElementById("sub-in");
-
-let inputSearch = document.getElementById("search-in");
-
-let mode = document.getElementById("mode");
-
-let list = document.getElementById('list');
 
 //fun
 
@@ -56,12 +37,10 @@ inputSearch.addEventListener("keyup", () => {
     })
 })
 
-
-
 list.addEventListener("click", (e) => {
     let p = e.target.parentElement.previousElementSibling;
     if (e.target.classList.contains("delete")) {
-        deleteFromDB(p.innerText);
+        deleteFromDB(p.innerText, userID);
     }
     else if (e.target.classList.contains("edit")) {
         mode.innerText = "Edit";
@@ -73,12 +52,12 @@ list.addEventListener("click", (e) => {
 mode.addEventListener("click", () => {
     if (inputSub.value !== "") {
         if (toDo.edit) {
-            editToDB(toDo.editItem);
+            editToDB(toDo.editItem, userID);
             toDo.setValues(true, false, "");
             mode.innerText = "Submite";
         }
         else {
-            addToDB(inputSub.value);
+            addToDB(inputSub.value, userID);
         }
         inputSub.value = "";
     }
@@ -88,6 +67,28 @@ mode.addEventListener("click", () => {
     }
 })
 
+authBtns.addEventListener('click', e => {
+    e.stopPropagation();
+    if (e.target.id === "log-in") {
+        logModel.classList.remove("hide");
+    }
+    else if (e.target.id === "log-out") {
+        auth.signOut().then(() => { })
+    }
+    else if (e.target.id === "sign-up") {
+        signModel.classList.remove("hide");
+    }
+})
+
+
+document.addEventListener("click", e => {
+    if (e.target !== logForm && !logForm.contains(e.target)) {
+        logModel.classList.add("hide");
+    }
+    if (e.target !== signForm && !signForm.contains(e.target)) {
+        signModel.classList.add("hide");
+    }
+})
+
 //main
 
-getDB();

@@ -4,6 +4,58 @@
 
 $main-color:brown;
 
+#auth-js {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem;
+
+    p:not(#user-js) {
+        @include btn;
+    }
+}
+
+#user-js {
+    margin-right: auto;
+}
+
+
+.model {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #0000008a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 5px;
+
+    h2 {
+        margin-bottom: 3rem;
+        text-align: center;
+    }
+
+    * {
+        margin-bottom: 1rem;
+    }
+}
+
+.submit {
+    color: $main-color;
+    width: max-content;
+    @include btn;
+    margin-top: 2rem;
+}
+
+
 #title {
     width: 50%;
     margin: 3rem auto;
@@ -33,48 +85,34 @@ hr {
     }
 }
 
+input {
+    border: none;
+    border-bottom: 1px solid gray;
+    transition: .4s;
+    align-self: flex-end;
+    font-size: 1.3rem;
+    padding-bottom: .5rem;
+
+    @include mobile {
+        align-self: auto;
+        width: 100%;
+    }
+
+    &:focus {
+        outline: none;
+        border-bottom: 1px solid $main-color;
+    }
+}
+
+
+
 #in {
     display: flex;
     margin-bottom: 2rem;
     flex-direction: column;
 
-    & i {
-        width: 34px;
-        height: 34px;
-    }
-
-    & input {
-        border: none;
-        border-bottom: 1px solid gray;
-        transition: .4s;
-        align-self: flex-end;
-        font-size: 1.3rem;
-        padding-bottom: .5rem;
-        margin-right: 1rem;
-
-        @include mobile {
-            align-self: auto;
-            width: 100%;
-        }
-
-        &:focus {
-            outline: none;
-            border-bottom: 1px solid $main-color;
-        }
-    }
-
-    & i,
     & p {
-        border-radius: 5px;
-        border: 1px solid $main-color;
-        transition: .3s;
-        padding: .5rem;
-
-        &:hover {
-            background-color: $main-color;
-            color: white;
-            cursor: pointer;
-        }
+        @include btn;
     }
 }
 
@@ -105,4 +143,8 @@ hr {
             cursor: pointer;
         }
     }
+}
+
+.hide {
+    display: none;
 }

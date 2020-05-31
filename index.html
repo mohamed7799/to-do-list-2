@@ -8,6 +8,32 @@
         <title>To Do List</title>
     </head>
     <body>
+        <nav id="auth-js">
+            <p id="user-js" class="hide"></p>
+            <p id="log-in">Log in</p>
+            <p id="sign-up">Sign up</p>
+            <p id="log-out">logout</p>
+        </nav>
+        <div id="log-model-js" class="model hide">
+            <form action="" id="log-form">
+                <h2>Log In</h2>
+                <label for="email">Email</label>
+                <input type="email" name="email" id="log-email">
+                <label for="pass">Password</label>
+                <input type="password" name="pass" id="log-pass">
+                <input class="submit" type="submit" value="Log in">
+            </form>
+        </div>
+        <div id="sign-model-js" class="model hide">
+            <form action="" id="sign-form">
+                <h2>Sign Up</h2>
+                <label for="email">Email</label>
+                <input type="email" name="email" id="sign-email">
+                <label for="pass">Password</label>
+                <input type="password" name="pass" id="sign-pass">
+                <input class="submit" type="submit" value="Sign up">
+            </form>
+        </div>
         <div id="title">
             <h1>My To Do List</h1>
             <hr>
@@ -26,21 +52,11 @@
         </div>
         <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-firestore.js"></script>
-        <script>
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyAgz7sOBshUZrq5_bcIxsVCiBQJSSQA824",
-    authDomain: "to-do-list-bfc1d.firebaseapp.com",
-    databaseURL: "https://to-do-list-bfc1d.firebaseio.com",
-    projectId: "to-do-list-bfc1d",
-    storageBucket: "to-do-list-bfc1d.appspot.com",
-    messagingSenderId: "371505455832",
-    appId: "1:371505455832:web:1ebd2f8811f1d363e9adad"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-        </script>
+        <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-auth.js"></script>
+        <script src="firebaseConfig.js"></script>
+        <script src="vars.js"></script>
         <script src="DB.js"></script>
-        <script src="code.js"></script>
+        <script src="main.js"></script>
+        <script src="auth.js"></script>
     </body>
 </html>
